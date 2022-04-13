@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>çi arama</title>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+ 
+<input type="text" autocomplete="off" name="searchTags" id="searchTags" placeholder="Aranacak Kelime" />
+ 
+<ul id="menuFull">
+ 
+<li>Anasayfa</li>
+ 
+<li>Müzik
+    <ul>
+        <li>can</li>
+    </ul>
+</li>
+ 
+<li>Komedi</li>
+ 
+<li>Haber</li>
+ 
+<li>Moda
+    <ul>
+        <li>can</li>
+    </ul>
+</li>
+ 
+<li>Spor</li>
+ 
+<li>Yaşam
+    <ul>
+        <li>
+            osman
+        </li>
+        <li>can 
+
+            <ul>
+                <li>kamil
+                    <ul>
+                        <li>sef</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</li>
+ 
+<li>Teknoloji</li>
+ 
+</ul>
+ 
+<script>
+
+ 
+$(document).ready(function () {
+ 
+// keyup ile inputa herhangi bir değer girilince fonksiyonu tetikliyoruz
+$("#searchTags").keyup(function(){
+ 
+// inputa yazılan değeri alıyoruz
+var value = $("#searchTags").val();
+ 
+// eğer input içinde değer yoksa yani boşsa tüm menüyü çıkartıyoruz
+if(value.length==0){
+ 
+$("#menuFull li").show();
+ 
+// arama yapılmışsa ilk olarak tüm menüyü gizliyoruz ve girilen değer ile eşleşen kısmı çıkarıyoruz
+}else{
+ 
+$("#menuFull li").hide();
+$("#menuFull li ul li:nth-child(1)").show();
+
+$("#menuFull li:contains("+value+")").show();
+ 
+}
+ 
+});
+ 
+});
+</script>
+ 
+</body>
+</html>
